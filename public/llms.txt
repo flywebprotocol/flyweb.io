@@ -1,0 +1,186 @@
+# FlyWeb
+
+> The open protocol for machine-readable websites. One JSON file makes your entire site discoverable, readable, and citable by AI.
+
+## What is FlyWeb?
+
+FlyWeb is an open protocol that lets any website describe its content in a way machines can understand. Every website publishes a single file at `/.well-known/flyweb.json` that tells AI agents what content is available, where to find it, and how to credit the creator.
+
+Think of it as the inverse of robots.txt — instead of "stay away," it says "here's what I have."
+
+## Quick Start
+
+Add `/.well-known/flyweb.json` to your website:
+
+```json
+{
+  "flyweb": "1.0",
+  "entity": "Your Website",
+  "type": "blog",
+  "attribution": {
+    "required": true,
+    "must_link": true
+  },
+  "resources": {
+    "posts": {
+      "path": "/.flyweb/posts",
+      "format": "jsonl",
+      "fields": ["title", "author", "date", "content", "url"],
+      "access": "free",
+      "query": "?tag={tag}&limit={n}"
+    }
+  }
+}
+```
+
+Or use the CLI: `npx flyweb init`
+
+## Protocol Layers
+
+1. **Discovery**: AI agents fetch `/.well-known/flyweb.json` to learn what content a site exposes
+2. **Structure**: Content is served as clean JSON/JSONL at the specified resource paths
+3. **Query**: Standard URL parameters for filtering and pagination — no API key needed
+
+## Config Schema
+
+### Root fields
+- `flyweb` (required): Protocol version, must be "1.0"
+- `entity` (required): Name of the website or organization
+- `type` (required): Content type — "blog", "news", "ecommerce", "saas", "docs", "api", "social", "portfolio", "directory", "marketplace", "forum", "wiki", "science"
+- `description` (optional): Human-readable description
+- `url` (optional): Canonical URL of the website
+- `attribution` (optional): Attribution requirements object
+- `resources` (required): Map of resource name to resource config
+
+### Attribution fields
+- `required` (boolean): Whether AI must credit the source (default: true)
+- `format` (string): How to format the attribution
+- `license` (string): Content license (e.g., "CC-BY-4.0")
+- `must_link` (boolean): Whether a link back to original is required
+
+### Resource fields
+- `path` (required): URL path where data is served, must start with "/"
+- `format` (required): Data format — "json", "jsonl", "csv", or "xml"
+- `fields` (required): Array of field names available in the returned data
+- `query` (optional): URL query pattern with placeholders, e.g., "?tag={tag}&limit={n}"
+- `description` (optional): Human-readable description of this resource
+- `auth` (optional): Whether authentication is needed (boolean)
+- `access` (optional): Access tier — "free" (default), "paid", or "blocked"
+- `attribution` (optional): Resource-level attribution override
+
+## Framework Integrations
+
+- **Next.js**: `npm i next-flyweb`
+- **Astro**: `npm i astro-flyweb`
+- **SvelteKit**: `npm i sveltekit-flyweb`
+- **Nuxt**: `npm i nuxt-flyweb`
+- **Express / Node.js**: `npm i express-flyweb`
+- **WordPress**: Install the flyweb-wp plugin
+- **Any site**: `npx flyweb init`
+
+## Client SDK (for AI agents consuming FlyWeb data)
+
+```js
+import { discover, fetchResource } from 'flyweb/client';
+
+const site = await discover('https://example.com');
+console.log(site.config.entity); // "Example Site"
+console.log(Object.keys(site.config.resources)); // ["posts", "products"]
+
+const posts = await fetchResource('https://example.com', site.config.resources.posts, {
+  params: { tag: 'ai' },
+  limit: 10
+});
+```
+
+## MCP Server (for AI coding tools)
+
+Add to your MCP config (Claude Code, Cursor, etc.):
+
+```json
+{
+  "mcpServers": {
+    "flyweb": {
+      "command": "npx",
+      "args": ["-y", "flyweb-mcp"]
+    }
+  }
+}
+```
+
+Available tools:
+- `flyweb_discover` — Fetch a site's FlyWeb config
+- `flyweb_fetch` — Read structured data from a FlyWeb resource
+- `flyweb_validate` — Validate a flyweb.json against the spec
+- `flyweb_generate` — Generate a flyweb.json for a project
+
+## CLI Commands
+
+- `npx flyweb check <url>` — Validate a site's FlyWeb config
+- `npx flyweb discover <url>` — Fetch and display a site's structured data
+- `npx flyweb init` — Generate a flyweb.json template
+
+## Real-World Examples
+
+### Blog
+```json
+{
+  "flyweb": "1.0",
+  "entity": "Tech Blog",
+  "type": "blog",
+  "resources": {
+    "posts": {
+      "path": "/.flyweb/posts",
+      "format": "jsonl",
+      "fields": ["title", "author", "date", "tags", "summary", "content", "url"]
+    }
+  }
+}
+```
+
+### E-Commerce
+```json
+{
+  "flyweb": "1.0",
+  "entity": "My Store",
+  "type": "ecommerce",
+  "resources": {
+    "products": {
+      "path": "/.flyweb/products",
+      "format": "jsonl",
+      "fields": ["name", "price", "currency", "category", "description", "url", "image"],
+      "query": "?category={cat}&price_max={max}"
+    }
+  }
+}
+```
+
+### News Publisher
+```json
+{
+  "flyweb": "1.0",
+  "entity": "News Org",
+  "type": "news",
+  "attribution": {
+    "required": true,
+    "license": "CC-BY-4.0",
+    "must_link": true
+  },
+  "resources": {
+    "articles": {
+      "path": "/.flyweb/articles",
+      "format": "jsonl",
+      "fields": ["title", "author", "date", "section", "summary", "content", "url"],
+      "query": "?section={section}&since={date}"
+    }
+  }
+}
+```
+
+## Links
+
+- Website: https://flyweb.io
+- Documentation: https://flyweb.io/docs
+- Specification: https://github.com/flywebprotocol/flyweb/blob/master/SPEC.md
+- GitHub: https://github.com/flywebprotocol/flyweb
+- npm: https://www.npmjs.com/package/flyweb
