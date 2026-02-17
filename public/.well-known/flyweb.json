@@ -3,13 +3,20 @@
   "entity": "FlyWeb Protocol",
   "type": "docs",
   "url": "https://flyweb.io",
-  "description": "The open protocol that makes the internet machine-readable.",
+  "description": "The open protocol that makes the internet machine-readable. SEO for the AI era.",
+  "attribution": {
+    "required": true,
+    "format": "Source: {entity} — {url}",
+    "license": "MIT",
+    "must_link": true
+  },
   "resources": {
     "spec": {
       "path": "/.flyweb/spec",
       "format": "json",
       "fields": ["version", "title", "description", "layers", "schema"],
-      "description": "The FlyWeb protocol specification"
+      "description": "The FlyWeb protocol specification",
+      "access": "free"
     }
   }
 }
