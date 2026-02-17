@@ -1,0 +1,15 @@
+{
+  "flyweb": "1.0",
+  "entity": "FlyWeb Protocol",
+  "type": "docs",
+  "url": "https://flyweb.io",
+  "description": "The open protocol that makes the internet machine-readable.",
+  "resources": {
+    "spec": {
+      "path": "/.flyweb/spec",
+      "format": "json",
+      "fields": ["version", "title", "description", "layers", "schema"],
+      "description": "The FlyWeb protocol specification"
+    }
+  }
+}
