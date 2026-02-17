@@ -1,0 +1,635 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<Layout
+  title="FlyWeb Docs — Complete Guide to AI Visibility"
+  description="Everything you need to make your website visible, readable, and cited by AI agents. Setup guides for every framework, the full spec, and real-world examples."
+>
+  <Nav />
+  <main class="pt-20 pb-24 max-w-4xl mx-auto px-6">
+
+    <!-- Docs Header -->
+    <div class="mb-16">
+      <p class="text-xs font-mono text-fw-mint mb-4 tracking-widest uppercase">Documentation</p>
+      <h1 class="font-display text-4xl sm:text-5xl font-bold mb-4">
+        FlyWeb <span class="text-fw-mint">Docs</span>
+      </h1>
+      <p class="text-lg text-fw-muted max-w-2xl">
+        Everything you need to make your website visible to AI. From zero to FlyWeb-enabled in 5 minutes.
+      </p>
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="mb-16 bg-fw-surface/40 border border-fw-border rounded-xl p-6">
+      <h2 class="font-display text-lg font-bold mb-4">Contents</h2>
+      <div class="grid sm:grid-cols-2 gap-2 text-sm">
+        <a href="#what-is-flyweb" class="text-fw-muted hover:text-fw-mint transition-colors py-1">1. What is FlyWeb?</a>
+        <a href="#quick-start" class="text-fw-muted hover:text-fw-mint transition-colors py-1">2. Quick Start</a>
+        <a href="#the-spec" class="text-fw-muted hover:text-fw-mint transition-colors py-1">3. The Spec</a>
+        <a href="#attribution" class="text-fw-muted hover:text-fw-mint transition-colors py-1">4. Attribution</a>
+        <a href="#access-tiers" class="text-fw-muted hover:text-fw-mint transition-colors py-1">5. Access Tiers</a>
+        <a href="#framework-guides" class="text-fw-muted hover:text-fw-mint transition-colors py-1">6. Framework Guides</a>
+        <a href="#wordpress" class="text-fw-muted hover:text-fw-mint transition-colors py-1">7. WordPress</a>
+        <a href="#client-sdk" class="text-fw-muted hover:text-fw-mint transition-colors py-1">8. Client SDK (for AI agents)</a>
+        <a href="#cli" class="text-fw-muted hover:text-fw-mint transition-colors py-1">9. CLI Tool</a>
+        <a href="#examples" class="text-fw-muted hover:text-fw-mint transition-colors py-1">10. Real-World Examples</a>
+        <a href="#faq" class="text-fw-muted hover:text-fw-mint transition-colors py-1">11. FAQ</a>
+      </div>
+    </nav>
+
+    <!-- 1. What is FlyWeb -->
+    <section id="what-is-flyweb" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">1. What is FlyWeb?</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>FlyWeb is an open protocol that makes websites machine-readable. Every website publishes a single JSON file at <code>/.well-known/flyweb.json</code> that tells AI agents:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong class="text-fw-text">What content you have</strong> &mdash; posts, products, pages, APIs</li>
+          <li><strong class="text-fw-text">Where to find it</strong> &mdash; structured data endpoints, not HTML</li>
+          <li><strong class="text-fw-text">How to query it</strong> &mdash; standard URL parameters for filtering</li>
+          <li><strong class="text-fw-text">How to credit you</strong> &mdash; enforced attribution at the protocol level</li>
+        </ul>
+        <p>Think of it as <strong class="text-fw-mint">SEO for the AI era</strong>. Google had robots.txt and sitemap.xml. AI agents need flyweb.json.</p>
+        <div class="bg-fw-surface/40 border border-fw-border rounded-lg p-4 mt-6">
+          <p class="text-fw-text font-medium mb-2">The Three Layers:</p>
+          <ol class="list-decimal pl-6 space-y-1">
+            <li><strong class="text-fw-text">Discovery</strong> &mdash; <code>/.well-known/flyweb.json</code> advertises your resources</li>
+            <li><strong class="text-fw-text">Structure</strong> &mdash; Content served as clean JSON/JSONL, not HTML</li>
+            <li><strong class="text-fw-text">Query</strong> &mdash; <code>?tag=ai&amp;limit=10</code> for filtering and pagination</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Quick Start -->
+    <section id="quick-start" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">2. Quick Start</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p><strong class="text-fw-text">Option A: Use a framework plugin</strong> (recommended)</p>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">
+          <div>npm install next-flyweb &nbsp;&nbsp;&nbsp;<span class="text-[#555570]"># Next.js</span></div>
+          <div>npm install astro-flyweb &nbsp;&nbsp;<span class="text-[#555570]"># Astro</span></div>
+          <div>npm install sveltekit-flyweb <span class="text-[#555570]"># SvelteKit</span></div>
+          <div>npm install nuxt-flyweb &nbsp;&nbsp;&nbsp;<span class="text-[#555570]"># Nuxt</span></div>
+          <div>npm install express-flyweb &nbsp;<span class="text-[#555570]"># Express/Node.js</span></div>
+        </div>
+
+        <p class="mt-6"><strong class="text-fw-text">Option B: Use the CLI</strong> (any website)</p>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">
+          <div><span class="text-fw-muted">$</span> npx flyweb init &gt; public/.well-known/flyweb.json</div>
+        </div>
+        <p>Edit the generated file with your entity name, type, and resources. Deploy.</p>
+
+        <p class="mt-6"><strong class="text-fw-text">Option C: WordPress</strong></p>
+        <ol class="list-decimal pl-6 space-y-1">
+          <li>Download the <a href="https://github.com/flywebprotocol/flyweb/tree/master/wordpress-flyweb" class="text-fw-mint hover:underline">FlyWeb WordPress plugin</a></li>
+          <li>Upload to <code>/wp-content/plugins/</code> and activate</li>
+          <li>Go to Settings &gt; FlyWeb &mdash; configure and save</li>
+          <li>Your site is now FlyWeb-enabled. Zero code.</li>
+        </ol>
+
+        <p class="mt-6"><strong class="text-fw-text">Verify it works:</strong></p>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">
+          <div><span class="text-fw-muted">$</span> npx flyweb check https://yoursite.com</div>
+          <div class="mt-1 text-green-400">&#10003; Valid FlyWeb v1.0 config</div>
+          <div class="text-green-400">&#10003; All checks passed!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Spec -->
+    <section id="the-spec" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">3. The Spec</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>The <code>flyweb.json</code> file must be served at <code>/.well-known/flyweb.json</code> with <code>Content-Type: application/json</code>.</p>
+
+        <h3 class="text-fw-text font-bold text-base mt-8 mb-3">Schema</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs border border-fw-border rounded-lg overflow-hidden">
+            <thead class="bg-fw-surface/60">
+              <tr>
+                <th class="text-left p-3 text-fw-text font-mono">Field</th>
+                <th class="text-left p-3 text-fw-text font-mono">Type</th>
+                <th class="text-left p-3 text-fw-text font-mono">Required</th>
+                <th class="text-left p-3 text-fw-text">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-fw-border/50">
+              <tr><td class="p-3 font-mono text-fw-mint">flyweb</td><td class="p-3 font-mono">"1.0"</td><td class="p-3">Yes</td><td class="p-3">Protocol version</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">entity</td><td class="p-3 font-mono">string</td><td class="p-3">Yes</td><td class="p-3">Site or org name</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">type</td><td class="p-3 font-mono">string</td><td class="p-3">Yes</td><td class="p-3">blog, news, ecommerce, docs, api, saas, science, etc.</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">url</td><td class="p-3 font-mono">string</td><td class="p-3">No</td><td class="p-3">Canonical site URL</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">description</td><td class="p-3 font-mono">string</td><td class="p-3">No</td><td class="p-3">Human-readable description</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">attribution</td><td class="p-3 font-mono">object</td><td class="p-3">No</td><td class="p-3">Attribution requirements (see below)</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">resources</td><td class="p-3 font-mono">object</td><td class="p-3">Yes</td><td class="p-3">Map of resource name &rarr; resource config</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-fw-text font-bold text-base mt-8 mb-3">Resource Schema</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs border border-fw-border rounded-lg overflow-hidden">
+            <thead class="bg-fw-surface/60">
+              <tr>
+                <th class="text-left p-3 text-fw-text font-mono">Field</th>
+                <th class="text-left p-3 text-fw-text font-mono">Type</th>
+                <th class="text-left p-3 text-fw-text font-mono">Required</th>
+                <th class="text-left p-3 text-fw-text">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-fw-border/50">
+              <tr><td class="p-3 font-mono text-fw-mint">path</td><td class="p-3 font-mono">string</td><td class="p-3">Yes</td><td class="p-3">URL path starting with /</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">format</td><td class="p-3 font-mono">string</td><td class="p-3">Yes</td><td class="p-3">json, jsonl, csv, or xml</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">fields</td><td class="p-3 font-mono">string[]</td><td class="p-3">Yes</td><td class="p-3">Available data fields</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">query</td><td class="p-3 font-mono">string</td><td class="p-3">No</td><td class="p-3">Query template with &#123;param&#125; placeholders</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">access</td><td class="p-3 font-mono">string</td><td class="p-3">No</td><td class="p-3">"free" (default), "paid", or "blocked"</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">description</td><td class="p-3 font-mono">string</td><td class="p-3">No</td><td class="p-3">Human-readable description</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">auth</td><td class="p-3 font-mono">boolean</td><td class="p-3">No</td><td class="p-3">Whether auth is required</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-6">Full specification: <a href="https://github.com/flywebprotocol/flyweb/blob/master/SPEC.md" class="text-fw-mint hover:underline" target="_blank">SPEC.md on GitHub</a></p>
+      </div>
+    </section>
+
+    <!-- 4. Attribution -->
+    <section id="attribution" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">4. Attribution</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>Attribution is enforced at the protocol level. <strong class="text-fw-mint">You can set price to zero. You can never set attribution to zero.</strong></p>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <div class="px-4 py-2 border-b border-fw-border/60 bg-fw-bg/30 text-[11px] font-mono text-fw-muted">attribution object</div>
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">"attribution"</span>: <span class="text-fw-muted">&#123;</span>
+  <span class="text-fw-indigo">"required"</span>: <span class="text-orange-300">true</span>,            <span class="text-[#555570]">// must credit source</span>
+  <span class="text-fw-indigo">"format"</span>: <span class="text-fw-mint">"Source: &#123;entity&#125; &mdash; &#123;url&#125;"</span>,  <span class="text-[#555570]">// how to format it</span>
+  <span class="text-fw-indigo">"license"</span>: <span class="text-fw-mint">"CC-BY-4.0"</span>,       <span class="text-[#555570]">// content license</span>
+  <span class="text-fw-indigo">"must_link"</span>: <span class="text-orange-300">true</span>           <span class="text-[#555570]">// must include URL</span>
+<span class="text-fw-muted">&#125;</span></code></pre>
+        </div>
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full text-xs border border-fw-border rounded-lg overflow-hidden">
+            <thead class="bg-fw-surface/60">
+              <tr>
+                <th class="text-left p-3 text-fw-text font-mono">Field</th>
+                <th class="text-left p-3 text-fw-text">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-fw-border/50">
+              <tr><td class="p-3 font-mono text-fw-mint">required</td><td class="p-3">Whether attribution is required (default: true)</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">format</td><td class="p-3">Template string for how AI should format the credit. Use &#123;entity&#125; and &#123;url&#125; placeholders.</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">license</td><td class="p-3">Content license (CC-BY-4.0, MIT, CC-BY-NC-4.0, etc.)</td></tr>
+              <tr><td class="p-3 font-mono text-fw-mint">must_link</td><td class="p-3">Whether AI responses must include a link back to source</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Access Tiers -->
+    <section id="access-tiers" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">5. Access Tiers</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>Each resource has an <code>access</code> field that controls how AI agents can interact with it:</p>
+        <div class="grid sm:grid-cols-3 gap-4 mt-4">
+          <div class="bg-fw-surface/30 border border-green-400/20 rounded-lg p-4">
+            <div class="text-green-400 font-mono font-bold text-sm mb-2">"free"</div>
+            <p class="text-xs">Default. AI reads your content for free but must follow attribution rules.</p>
+          </div>
+          <div class="bg-fw-surface/30 border border-yellow-400/20 rounded-lg p-4">
+            <div class="text-yellow-400 font-mono font-bold text-sm mb-2">"paid"</div>
+            <p class="text-xs">AI must pay to access. Payment integration coming soon.</p>
+          </div>
+          <div class="bg-fw-surface/30 border border-red-400/20 rounded-lg p-4">
+            <div class="text-red-400 font-mono font-bold text-sm mb-2">"blocked"</div>
+            <p class="text-xs">AI agents cannot access this resource. Useful for premium content.</p>
+          </div>
+        </div>
+        <p class="mt-4">Start with <code>"free"</code>. When you're ready to monetize, change one line to <code>"paid"</code>. No migration needed.</p>
+      </div>
+    </section>
+
+    <!-- 6. Framework Guides -->
+    <section id="framework-guides" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">6. Framework Guides</h2>
+
+      <!-- Next.js -->
+      <div class="mb-12">
+        <h3 class="font-display text-lg font-bold mb-4 text-fw-text">Next.js</h3>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs mb-4">npm install next-flyweb</div>
+        <p class="text-sm text-fw-muted mb-3">Create <code>app/.well-known/flyweb.json/route.ts</code>:</p>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> &#123; createHandler &#125; <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'next-flyweb'</span>;
+
+<span class="text-fw-indigo">export const</span> GET = <span class="text-fw-text">createHandler</span>(&#123;
+  flyweb: <span class="text-fw-mint">'1.0'</span>,
+  entity: <span class="text-fw-mint">'My Blog'</span>,
+  type: <span class="text-fw-mint">'blog'</span>,
+  attribution: &#123; required: <span class="text-orange-300">true</span>, license: <span class="text-fw-mint">'CC-BY-4.0'</span>, must_link: <span class="text-orange-300">true</span> &#125;,
+  resources: &#123;
+    posts: &#123;
+      path: <span class="text-fw-mint">'/.flyweb/posts'</span>,
+      format: <span class="text-fw-mint">'jsonl'</span>,
+      fields: [<span class="text-fw-mint">'title'</span>, <span class="text-fw-mint">'author'</span>, <span class="text-fw-mint">'date'</span>, <span class="text-fw-mint">'content'</span>],
+      query: <span class="text-fw-mint">'?tag=&#123;tag&#125;'</span>,
+      access: <span class="text-fw-mint">'free'</span>,
+    &#125;,
+  &#125;,
+&#125;);</code></pre>
+        </div>
+        <p class="text-sm text-fw-muted mt-3">Then create <code>app/.flyweb/posts/route.ts</code> to serve the actual data:</p>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden mt-2">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> &#123; createResourceHandler &#125; <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'next-flyweb'</span>;
+<span class="text-fw-indigo">import</span> &#123; getAllPosts &#125; <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'@/lib/posts'</span>;
+
+<span class="text-fw-indigo">export const</span> GET = <span class="text-fw-text">createResourceHandler</span>(&#123;
+  format: <span class="text-fw-mint">'jsonl'</span>,
+  source: getAllPosts,
+  queryable: [<span class="text-fw-mint">'tag'</span>, <span class="text-fw-mint">'author'</span>],
+  maxLimit: <span class="text-orange-300">50</span>,
+&#125;);</code></pre>
+        </div>
+      </div>
+
+      <!-- SvelteKit -->
+      <div class="mb-12">
+        <h3 class="font-display text-lg font-bold mb-4 text-fw-text">SvelteKit</h3>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs mb-4">npm install sveltekit-flyweb</div>
+        <p class="text-sm text-fw-muted mb-3">Create <code>src/routes/.well-known/flyweb.json/+server.ts</code>:</p>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> &#123; createHandler &#125; <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'sveltekit-flyweb'</span>;
+
+<span class="text-fw-indigo">export const</span> GET = <span class="text-fw-text">createHandler</span>(&#123;
+  flyweb: <span class="text-fw-mint">'1.0'</span>,
+  entity: <span class="text-fw-mint">'My App'</span>,
+  type: <span class="text-fw-mint">'saas'</span>,
+  resources: &#123;
+    docs: &#123;
+      path: <span class="text-fw-mint">'/.flyweb/docs'</span>,
+      format: <span class="text-fw-mint">'jsonl'</span>,
+      fields: [<span class="text-fw-mint">'title'</span>, <span class="text-fw-mint">'slug'</span>, <span class="text-fw-mint">'content'</span>],
+    &#125;,
+  &#125;,
+&#125;);</code></pre>
+        </div>
+      </div>
+
+      <!-- Astro -->
+      <div class="mb-12">
+        <h3 class="font-display text-lg font-bold mb-4 text-fw-text">Astro</h3>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs mb-4">npm install astro-flyweb</div>
+        <p class="text-sm text-fw-muted mb-3">Add to <code>astro.config.mjs</code>:</p>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> flyweb <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'astro-flyweb'</span>;
+
+<span class="text-fw-indigo">export default</span> defineConfig(&#123;
+  integrations: [
+    <span class="text-fw-text">flyweb</span>(&#123;
+      entity: <span class="text-fw-mint">'My Docs'</span>,
+      type: <span class="text-fw-mint">'docs'</span>,
+      resources: &#123;
+        pages: &#123;
+          path: <span class="text-fw-mint">'/.flyweb/pages'</span>,
+          format: <span class="text-fw-mint">'jsonl'</span>,
+          fields: [<span class="text-fw-mint">'title'</span>, <span class="text-fw-mint">'slug'</span>, <span class="text-fw-mint">'content'</span>],
+        &#125;,
+      &#125;,
+    &#125;),
+  ],
+&#125;);</code></pre>
+        </div>
+        <p class="text-sm text-fw-muted mt-2">Generates <code>public/.well-known/flyweb.json</code> automatically during build.</p>
+      </div>
+
+      <!-- Express -->
+      <div class="mb-12">
+        <h3 class="font-display text-lg font-bold mb-4 text-fw-text">Express / Node.js</h3>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs mb-4">npm install express-flyweb</div>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> express <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'express'</span>;
+<span class="text-fw-indigo">import</span> &#123; flyweb, createResourceHandler &#125; <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'express-flyweb'</span>;
+
+<span class="text-fw-indigo">const</span> app = <span class="text-fw-text">express</span>();
+
+<span class="text-[#555570]">// Middleware: serves flyweb.json at /.well-known/flyweb.json</span>
+app.<span class="text-fw-text">use</span>(<span class="text-fw-text">flyweb</span>(&#123;
+  flyweb: <span class="text-fw-mint">'1.0'</span>,
+  entity: <span class="text-fw-mint">'My API'</span>,
+  type: <span class="text-fw-mint">'api'</span>,
+  resources: &#123;
+    items: &#123;
+      path: <span class="text-fw-mint">'/.flyweb/items'</span>,
+      format: <span class="text-fw-mint">'json'</span>,
+      fields: [<span class="text-fw-mint">'id'</span>, <span class="text-fw-mint">'name'</span>, <span class="text-fw-mint">'description'</span>],
+      access: <span class="text-fw-mint">'free'</span>,
+    &#125;,
+  &#125;,
+&#125;));
+
+<span class="text-[#555570]">// Resource handler with filtering</span>
+app.<span class="text-fw-text">get</span>(<span class="text-fw-mint">'/.flyweb/items'</span>, <span class="text-fw-text">createResourceHandler</span>(&#123;
+  format: <span class="text-fw-mint">'json'</span>,
+  source: () =&gt; getItems(),
+  queryable: [<span class="text-fw-mint">'category'</span>],
+&#125;));</code></pre>
+        </div>
+      </div>
+
+      <!-- Nuxt -->
+      <div class="mb-12">
+        <h3 class="font-display text-lg font-bold mb-4 text-fw-text">Nuxt</h3>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs mb-4">npm install nuxt-flyweb</div>
+        <p class="text-sm text-fw-muted mb-3">Add to <code>nuxt.config.ts</code>:</p>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> flyweb <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'nuxt-flyweb'</span>;
+
+<span class="text-fw-indigo">export default</span> defineNuxtConfig(&#123;
+  modules: [
+    [flyweb, &#123;
+      entity: <span class="text-fw-mint">'My Site'</span>,
+      type: <span class="text-fw-mint">'blog'</span>,
+      resources: &#123;
+        posts: &#123;
+          path: <span class="text-fw-mint">'/.flyweb/posts'</span>,
+          format: <span class="text-fw-mint">'jsonl'</span>,
+          fields: [<span class="text-fw-mint">'title'</span>, <span class="text-fw-mint">'author'</span>, <span class="text-fw-mint">'content'</span>],
+        &#125;,
+      &#125;,
+    &#125;],
+  ],
+&#125;);</code></pre>
+        </div>
+      </div>
+
+      <!-- Static file -->
+      <div>
+        <h3 class="font-display text-lg font-bold mb-4 text-fw-text">Static Site / Manual</h3>
+        <p class="text-sm text-fw-muted mb-3">Create <code>public/.well-known/flyweb.json</code> manually or with the CLI:</p>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">npx flyweb init &gt; public/.well-known/flyweb.json</div>
+        <p class="text-sm text-fw-muted mt-3">Then create your resource endpoint(s) that serve structured JSON/JSONL data at the paths you defined.</p>
+      </div>
+    </section>
+
+    <!-- 7. WordPress -->
+    <section id="wordpress" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">7. WordPress</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>The FlyWeb WordPress plugin auto-generates everything. Zero code required.</p>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li>Download from <a href="https://github.com/flywebprotocol/flyweb/tree/master/wordpress-flyweb" class="text-fw-mint hover:underline" target="_blank">GitHub</a></li>
+          <li>Upload to <code>/wp-content/plugins/flyweb/</code></li>
+          <li>Activate in Plugins menu</li>
+          <li>Go to <strong class="text-fw-text">Settings &gt; FlyWeb</strong></li>
+          <li>Configure entity name, site type, and which resources to expose</li>
+          <li>Save. Done.</li>
+        </ol>
+        <p class="mt-4"><strong class="text-fw-text">Auto-generated endpoints:</strong></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><code>/.well-known/flyweb.json</code> &mdash; discovery file</li>
+          <li><code>/.flyweb/posts</code> &mdash; blog posts as JSONL</li>
+          <li><code>/.flyweb/pages</code> &mdash; pages as JSONL</li>
+          <li><code>/.flyweb/products</code> &mdash; WooCommerce products as JSONL</li>
+        </ul>
+        <p class="mt-4"><strong class="text-fw-text">Query parameters:</strong></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><code>?category=tech</code> &mdash; filter by category</li>
+          <li><code>?tag=ai</code> &mdash; filter by tag</li>
+          <li><code>?price_max=2000</code> &mdash; filter products by max price</li>
+          <li><code>?limit=10&amp;offset=20</code> &mdash; pagination</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. Client SDK -->
+    <section id="client-sdk" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">8. Client SDK (for AI agents)</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>For developers building AI agents that consume FlyWeb-enabled sites:</p>
+        <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs mb-4">npm install flyweb</div>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code><span class="text-fw-indigo">import</span> &#123; discover, fetchResource &#125; <span class="text-fw-indigo">from</span> <span class="text-fw-mint">'flyweb/client'</span>;
+
+<span class="text-[#555570]">// Discover what a site offers</span>
+<span class="text-fw-indigo">const</span> site = <span class="text-fw-indigo">await</span> <span class="text-fw-text">discover</span>(<span class="text-fw-mint">'https://example.com'</span>);
+console.log(site.config.entity);                 <span class="text-[#555570]">// "TechCrunch"</span>
+console.log(Object.keys(site.config.resources));  <span class="text-[#555570]">// ["articles"]</span>
+
+<span class="text-[#555570]">// Fetch structured data</span>
+<span class="text-fw-indigo">const</span> articles = <span class="text-fw-indigo">await</span> <span class="text-fw-text">fetchResource</span>(
+  <span class="text-fw-mint">'https://example.com'</span>,
+  site.config.resources.articles,
+  &#123; params: &#123; tag: <span class="text-fw-mint">'ai'</span> &#125;, limit: <span class="text-orange-300">10</span> &#125;
+);
+
+<span class="text-[#555570]">// Respect attribution</span>
+<span class="text-fw-indigo">if</span> (site.config.attribution?.required) &#123;
+  console.log(<span class="text-fw-mint">`Source: $&#123;site.config.entity&#125;`</span>);
+&#125;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CLI -->
+    <section id="cli" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">9. CLI Tool</h2>
+      <div class="prose-content space-y-4 text-sm text-fw-muted leading-relaxed">
+        <p>The FlyWeb CLI works with any website. No install required &mdash; just <code>npx</code>.</p>
+        <div class="space-y-4 mt-4">
+          <div>
+            <p class="text-fw-text font-medium mb-2">Check if a site supports FlyWeb:</p>
+            <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">npx flyweb check https://example.com</div>
+          </div>
+          <div>
+            <p class="text-fw-text font-medium mb-2">Validate a local file:</p>
+            <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">npx flyweb check ./flyweb.json</div>
+          </div>
+          <div>
+            <p class="text-fw-text font-medium mb-2">Discover and fetch data from a FlyWeb site:</p>
+            <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">npx flyweb discover https://flyweb.io</div>
+          </div>
+          <div>
+            <p class="text-fw-text font-medium mb-2">Generate a starter config:</p>
+            <div class="bg-fw-bg border border-fw-border rounded-lg p-4 font-mono text-xs">npx flyweb init &gt; public/.well-known/flyweb.json</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Examples -->
+    <section id="examples" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">10. Real-World Examples</h2>
+
+      <!-- Blog -->
+      <div class="mb-10">
+        <h3 class="font-display text-base font-bold mb-3 text-fw-mint">Blog</h3>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code>&#123;
+  "flyweb": "1.0",
+  "entity": "Sarah's Tech Blog",
+  "type": "blog",
+  "url": "https://sarahchen.dev",
+  "attribution": &#123; "required": true, "license": "CC-BY-4.0", "must_link": true &#125;,
+  "resources": &#123;
+    "posts": &#123;
+      "path": "/.flyweb/posts",
+      "format": "jsonl",
+      "fields": ["title", "author", "date", "content", "tags"],
+      "query": "?tag=&#123;tag&#125;&amp;limit=&#123;n&#125;",
+      "access": "free"
+    &#125;
+  &#125;
+&#125;</code></pre>
+        </div>
+      </div>
+
+      <!-- E-Commerce -->
+      <div class="mb-10">
+        <h3 class="font-display text-base font-bold mb-3 text-fw-mint">E-Commerce (WooCommerce / Shopify)</h3>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code>&#123;
+  "flyweb": "1.0",
+  "entity": "Glamira Jewelry",
+  "type": "ecommerce",
+  "url": "https://glamira.com",
+  "attribution": &#123; "required": true, "must_link": true &#125;,
+  "resources": &#123;
+    "products": &#123;
+      "path": "/.flyweb/products",
+      "format": "jsonl",
+      "fields": ["name", "price", "currency", "description", "category", "url", "image"],
+      "query": "?category=&#123;category&#125;&amp;price_max=&#123;max&#125;&amp;limit=&#123;n&#125;",
+      "access": "free"
+    &#125;,
+    "collections": &#123;
+      "path": "/.flyweb/collections",
+      "format": "json",
+      "fields": ["name", "slug", "product_count"],
+      "access": "free"
+    &#125;
+  &#125;
+&#125;</code></pre>
+        </div>
+        <p class="text-xs text-fw-muted mt-2">Now when someone asks AI "best gold ring under $2000" &mdash; your products appear in the answer.</p>
+      </div>
+
+      <!-- News -->
+      <div class="mb-10">
+        <h3 class="font-display text-base font-bold mb-3 text-fw-mint">News Publisher</h3>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code>&#123;
+  "flyweb": "1.0",
+  "entity": "TechCrunch",
+  "type": "news",
+  "attribution": &#123; "required": true, "license": "CC-BY-NC-4.0", "must_link": true &#125;,
+  "resources": &#123;
+    "articles": &#123;
+      "path": "/.flyweb/articles",
+      "format": "jsonl",
+      "fields": ["title", "author", "date", "section", "summary", "content", "url"],
+      "query": "?section=&#123;section&#125;&amp;tag=&#123;tag&#125;&amp;limit=&#123;n&#125;",
+      "access": "free"
+    &#125;,
+    "authors": &#123;
+      "path": "/.flyweb/authors",
+      "format": "json",
+      "fields": ["name", "bio", "url"],
+      "access": "free"
+    &#125;
+  &#125;
+&#125;</code></pre>
+        </div>
+      </div>
+
+      <!-- Science -->
+      <div class="mb-10">
+        <h3 class="font-display text-base font-bold mb-3 text-fw-mint">Science / Academic</h3>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code>&#123;
+  "flyweb": "1.0",
+  "entity": "MIT CSAIL Publications",
+  "type": "science",
+  "attribution": &#123; "required": true, "format": "&#123;entity&#125;, &#123;url&#125;", "must_link": true &#125;,
+  "resources": &#123;
+    "papers": &#123;
+      "path": "/.flyweb/papers",
+      "format": "jsonl",
+      "fields": ["title", "authors", "abstract", "doi", "date", "keywords"],
+      "query": "?keyword=&#123;keyword&#125;&amp;author=&#123;author&#125;&amp;limit=&#123;n&#125;",
+      "access": "free"
+    &#125;
+  &#125;
+&#125;</code></pre>
+        </div>
+        <p class="text-xs text-fw-muted mt-2">AI cites research with proper attribution. No more hallucinated citations.</p>
+      </div>
+
+      <!-- API / SaaS -->
+      <div>
+        <h3 class="font-display text-base font-bold mb-3 text-fw-mint">API / SaaS Documentation</h3>
+        <div class="bg-fw-surface/60 border border-fw-border rounded-lg overflow-hidden">
+          <pre class="p-4 text-xs font-mono leading-relaxed overflow-x-auto"><code>&#123;
+  "flyweb": "1.0",
+  "entity": "Stripe Docs",
+  "type": "docs",
+  "resources": &#123;
+    "guides": &#123;
+      "path": "/.flyweb/guides",
+      "format": "jsonl",
+      "fields": ["title", "slug", "content", "category"],
+      "query": "?category=&#123;category&#125;",
+      "access": "free"
+    &#125;,
+    "api-reference": &#123;
+      "path": "/.flyweb/api-reference",
+      "format": "jsonl",
+      "fields": ["endpoint", "method", "description", "parameters", "example"],
+      "access": "free"
+    &#125;
+  &#125;
+&#125;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FAQ -->
+    <section id="faq" class="mb-20">
+      <h2 class="font-display text-2xl font-bold mb-6 text-fw-text border-b border-fw-border pb-3">11. FAQ</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-fw-text font-bold text-sm mb-2">How is FlyWeb different from JSON-LD / Schema.org?</h3>
+          <p class="text-sm text-fw-muted leading-relaxed">JSON-LD describes what content IS (a recipe, an article). FlyWeb describes what content you HAVE and how to GET it. FlyWeb is about discovery and access, not semantic annotation. They're complementary.</p>
+        </div>
+        <div>
+          <h3 class="text-fw-text font-bold text-sm mb-2">How is FlyWeb different from llms.txt?</h3>
+          <p class="text-sm text-fw-muted leading-relaxed">llms.txt is a plain text file with instructions for LLMs. FlyWeb is a structured protocol with machine-readable endpoints, query parameters, attribution, and access controls. FlyWeb gives AI agents actual data, not just instructions.</p>
+        </div>
+        <div>
+          <h3 class="text-fw-text font-bold text-sm mb-2">Do AI agents actually check for flyweb.json?</h3>
+          <p class="text-sm text-fw-muted leading-relaxed">FlyWeb is designed for the next generation of AI agents. As adoption grows, AI companies are incentivized to check flyweb.json &mdash; it gives them cleaner data with less legal risk than scraping. We've filed RFCs with major frameworks to make FlyWeb a default.</p>
+        </div>
+        <div>
+          <h3 class="text-fw-text font-bold text-sm mb-2">Is my private content exposed?</h3>
+          <p class="text-sm text-fw-muted leading-relaxed">No. You control exactly which resources to expose. Only published, public content is served. Private, draft, or password-protected content is never included.</p>
+        </div>
+        <div>
+          <h3 class="text-fw-text font-bold text-sm mb-2">Can I monetize my content later?</h3>
+          <p class="text-sm text-fw-muted leading-relaxed">Yes. Start with <code>"access": "free"</code>. When payment integration launches, change it to <code>"access": "paid"</code>. One line change, no migration.</p>
+        </div>
+        <div>
+          <h3 class="text-fw-text font-bold text-sm mb-2">What about rate limiting?</h3>
+          <p class="text-sm text-fw-muted leading-relaxed">FlyWeb endpoints are standard HTTP. Use your existing rate limiting, CDN caching, or web server config. The protocol includes Cache-Control headers by default.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer link -->
+    <div class="text-center border-t border-fw-border pt-10">
+      <a href="/" class="text-fw-mint hover:underline font-mono text-sm">&larr; Back to flyweb.io</a>
+      <span class="text-fw-border mx-3">|</span>
+      <a href="https://github.com/flywebprotocol/flyweb/blob/master/SPEC.md" target="_blank" class="text-fw-muted hover:text-fw-mint font-mono text-sm">Full Spec on GitHub</a>
+      <span class="text-fw-border mx-3">|</span>
+      <a href="https://github.com/flywebprotocol/flyweb" target="_blank" class="text-fw-muted hover:text-fw-mint font-mono text-sm">Star on GitHub</a>
+    </div>
+  </main>
+</Layout>
