@@ -1,46 +1,49 @@
 <section id="solution" class="section-container">
   <div class="fade-in text-center mb-16">
-    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-      One File. <span class="text-flyweb-amber">Your Whole Site, Structured.</span>
+    <p class="text-xs font-mono text-fw-mint mb-4 tracking-widest uppercase">The solution</p>
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+      One file. <span class="text-fw-mint">Your whole site, structured.</span>
     </h2>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-      Add <code class="text-flyweb-amber bg-flyweb-dark px-2 py-1 rounded font-mono text-sm">/.well-known/flyweb.json</code> to your website.
+    <p class="text-fw-muted text-lg max-w-2xl mx-auto">
+      Add <code class="text-fw-mint bg-fw-surface px-2 py-0.5 rounded font-mono text-sm">/.well-known/flyweb.json</code> to your website.
       It tells every AI agent on earth exactly what content you have and how to read it.
     </p>
   </div>
 
   <div class="fade-in max-w-3xl mx-auto">
-    <div class="bg-flyweb-dark border border-gray-700 rounded-xl overflow-hidden">
-      <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-700 bg-black/30">
-        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-        <span class="text-gray-500 text-sm font-mono ml-2">/.well-known/flyweb.json</span>
+    <div class="bg-fw-surface/60 border border-fw-border rounded-xl overflow-hidden backdrop-blur-sm">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-fw-border/60 bg-fw-bg/30">
+        <div class="flex gap-1.5">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></div>
+        </div>
+        <span class="text-fw-muted text-[11px] font-mono ml-2">/.well-known/flyweb.json</span>
       </div>
-      <pre class="p-6 overflow-x-auto text-sm sm:text-base leading-relaxed"><code class="language-json"><span class="text-gray-500">&#123;</span>
-  <span class="text-flyweb-amber">"flyweb"</span>: <span class="text-green-400">"1.0"</span>,
-  <span class="text-flyweb-amber">"entity"</span>: <span class="text-green-400">"TechCrunch"</span>,
-  <span class="text-flyweb-amber">"type"</span>: <span class="text-green-400">"news"</span>,
-  <span class="text-flyweb-amber">"resources"</span>: <span class="text-gray-500">&#123;</span>
-    <span class="text-flyweb-amber">"articles"</span>: <span class="text-gray-500">&#123;</span>
-      <span class="text-flyweb-amber">"path"</span>: <span class="text-green-400">"/.flyweb/articles"</span>,           <span class="text-gray-600">// where to find them</span>
-      <span class="text-flyweb-amber">"format"</span>: <span class="text-green-400">"jsonl"</span>,                     <span class="text-gray-600">// one JSON per line</span>
-      <span class="text-flyweb-amber">"fields"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"title"</span>, <span class="text-green-400">"author"</span>, <span class="text-green-400">"date"</span>,
-                <span class="text-green-400">"summary"</span>, <span class="text-green-400">"content"</span>, <span class="text-green-400">"tags"</span><span class="text-gray-500">]</span>,  <span class="text-gray-600">// what's available</span>
-      <span class="text-flyweb-amber">"query"</span>: <span class="text-green-400">"/.flyweb/articles?tag=&#123;tag&#125;"</span> <span class="text-gray-600">// how to search</span>
-    <span class="text-gray-500">&#125;</span>,
-    <span class="text-flyweb-amber">"authors"</span>: <span class="text-gray-500">&#123;</span>
-      <span class="text-flyweb-amber">"path"</span>: <span class="text-green-400">"/.flyweb/authors"</span>,
-      <span class="text-flyweb-amber">"format"</span>: <span class="text-green-400">"json"</span>
-    <span class="text-gray-500">&#125;</span>
-  <span class="text-gray-500">&#125;</span>
-<span class="text-gray-500">&#125;</span></code></pre>
+      <pre class="p-6 overflow-x-auto text-[13px] sm:text-sm leading-[1.8]"><code class="font-mono"><span class="text-fw-muted">&#123;</span>
+  <span class="text-fw-indigo">"flyweb"</span>: <span class="text-fw-mint">"1.0"</span>,
+  <span class="text-fw-indigo">"entity"</span>: <span class="text-fw-mint">"TechCrunch"</span>,
+  <span class="text-fw-indigo">"type"</span>: <span class="text-fw-mint">"news"</span>,
+  <span class="text-fw-indigo">"resources"</span>: <span class="text-fw-muted">&#123;</span>
+    <span class="text-fw-indigo">"articles"</span>: <span class="text-fw-muted">&#123;</span>
+      <span class="text-fw-indigo">"path"</span>: <span class="text-fw-mint">"/.flyweb/articles"</span>,           <span class="text-[#555570]">// where to find them</span>
+      <span class="text-fw-indigo">"format"</span>: <span class="text-fw-mint">"jsonl"</span>,                     <span class="text-[#555570]">// one JSON per line</span>
+      <span class="text-fw-indigo">"fields"</span>: <span class="text-fw-muted">[</span><span class="text-fw-mint">"title"</span>, <span class="text-fw-mint">"author"</span>, <span class="text-fw-mint">"date"</span>,
+                <span class="text-fw-mint">"summary"</span>, <span class="text-fw-mint">"content"</span>, <span class="text-fw-mint">"tags"</span><span class="text-fw-muted">]</span>,  <span class="text-[#555570]">// what's available</span>
+      <span class="text-fw-indigo">"query"</span>: <span class="text-fw-mint">"/.flyweb/articles?tag=&#123;tag&#125;"</span> <span class="text-[#555570]">// how to search</span>
+    <span class="text-fw-muted">&#125;</span>,
+    <span class="text-fw-indigo">"authors"</span>: <span class="text-fw-muted">&#123;</span>
+      <span class="text-fw-indigo">"path"</span>: <span class="text-fw-mint">"/.flyweb/authors"</span>,
+      <span class="text-fw-indigo">"format"</span>: <span class="text-fw-mint">"json"</span>
+    <span class="text-fw-muted">&#125;</span>
+  <span class="text-fw-muted">&#125;</span>
+<span class="text-fw-muted">&#125;</span></code></pre>
     </div>
   </div>
 
   <div class="fade-in mt-12 text-center">
-    <p class="text-2xl font-display font-bold">
-      Any AI. Any website. <span class="text-flyweb-amber">One standard.</span>
+    <p class="text-xl font-display font-bold">
+      Any AI. Any website. <span class="text-fw-mint">One standard.</span>
     </p>
   </div>
 </section>

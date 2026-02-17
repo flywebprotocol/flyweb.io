@@ -1,48 +1,101 @@
-<section class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
-  <div class="max-w-4xl">
-    <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-none mb-8">
-      The Internet Can't<br />
-      <span class="text-flyweb-amber">Speak Machine.</span>
-    </h1>
+<section class="min-h-screen flex items-center relative overflow-hidden pt-14">
+  <!-- Background effects -->
+  <div class="absolute inset-0 grid-bg"></div>
+  <div class="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-fw-mint/[0.04] rounded-full blur-[150px]"></div>
+  <div class="absolute bottom-1/4 -right-40 w-[400px] h-[400px] bg-fw-indigo/[0.06] rounded-full blur-[130px]"></div>
 
-    <p class="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-6 leading-relaxed">
-      5 billion web pages. Zero structure.<br />
-      AI scrapes, guesses, and hallucinates its way through HTML soup.
-    </p>
+  <div class="relative max-w-6xl mx-auto px-6 py-16 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left: Text -->
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-fw-border bg-fw-surface/80 text-xs font-mono text-fw-muted mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-fw-mint animate-pulse"></span>
+          open protocol v1.0
+        </div>
 
-    <p class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12">
-      FlyWeb fixes it.
-    </p>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-800 tracking-tight leading-[1.08] mb-6">
+          Make the internet<br />
+          <span class="text-fw-mint">machine-readable.</span>
+        </h1>
 
-    <div class="bg-flyweb-dark border border-gray-800 rounded-lg px-6 py-4 inline-block mb-12">
-      <code class="text-flyweb-amber font-mono text-sm sm:text-base md:text-lg">
-        robots.txt tells machines where <span class="text-red-400">NOT</span> to go.
-        <br class="sm:hidden" />
-        flyweb.json tells them <span class="text-green-400">what you have</span>.
-      </code>
+        <p class="text-base sm:text-lg text-fw-muted leading-relaxed mb-8 max-w-lg">
+          <span class="text-fw-text font-medium">robots.txt</span> tells machines where <span class="text-red-400">not</span> to go.
+          <span class="text-fw-mint font-medium">flyweb.json</span> tells them <span class="text-fw-mint">what you have</span>.
+        </p>
+
+        <div class="flex flex-wrap gap-2.5 mb-10">
+          <span class="px-3 py-1.5 rounded-md border border-fw-border bg-fw-surface/60 text-xs text-fw-muted font-mono">universal discovery</span>
+          <span class="px-3 py-1.5 rounded-md border border-fw-border bg-fw-surface/60 text-xs text-fw-muted font-mono">structured data</span>
+          <span class="px-3 py-1.5 rounded-md border border-fw-border bg-fw-surface/60 text-xs text-fw-muted font-mono">zero API keys</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href="#solution"
+            class="bg-fw-mint text-fw-bg font-semibold px-7 py-3 rounded-lg text-sm hover:brightness-110 transition-all text-center"
+          >
+            Read the Spec
+          </a>
+          <a
+            href="https://github.com/flywebprotocol"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border border-fw-border text-fw-text font-medium px-7 py-3 rounded-lg text-sm hover:border-fw-mint/40 hover:text-fw-mint transition-all flex items-center justify-center gap-2"
+          >
+            <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Star on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Terminal animation -->
+      <div class="relative">
+        <div class="bg-fw-surface/80 border border-fw-border rounded-xl overflow-hidden glow-mint backdrop-blur-sm">
+          <!-- Terminal chrome -->
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-fw-border/60 bg-fw-bg/40">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></div>
+            </div>
+            <span class="text-fw-muted text-[11px] font-mono ml-2">/.well-known/flyweb.json</span>
+          </div>
+
+          <!-- Code content -->
+          <div class="p-5 font-mono text-[13px] sm:text-sm leading-[1.7]">
+            <div class="code-line" style="animation-delay: 0.2s"><span class="text-fw-muted">&#123;</span></div>
+            <div class="code-line" style="animation-delay: 0.45s; padding-left: 2ch"><span class="text-fw-indigo">"flyweb"</span><span class="text-fw-muted">:</span> <span class="text-fw-mint">"1.0"</span><span class="text-fw-muted">,</span> <span class="code-comment" style="animation-delay: 0.9s; color: #555570">// version</span></div>
+            <div class="code-line" style="animation-delay: 0.7s; padding-left: 2ch"><span class="text-fw-indigo">"entity"</span><span class="text-fw-muted">:</span> <span class="text-fw-mint">"TechCrunch"</span><span class="text-fw-muted">,</span></div>
+            <div class="code-line" style="animation-delay: 0.95s; padding-left: 2ch"><span class="text-fw-indigo">"type"</span><span class="text-fw-muted">:</span> <span class="text-fw-mint">"news"</span><span class="text-fw-muted">,</span></div>
+            <div class="code-line" style="animation-delay: 1.2s; padding-left: 2ch"><span class="text-fw-indigo">"resources"</span><span class="text-fw-muted">: &#123;</span></div>
+            <div class="code-line" style="animation-delay: 1.45s; padding-left: 4ch"><span class="text-fw-indigo">"articles"</span><span class="text-fw-muted">: &#123;</span></div>
+            <div class="code-line" style="animation-delay: 1.7s; padding-left: 6ch"><span class="text-fw-indigo">"path"</span><span class="text-fw-muted">:</span> <span class="text-fw-mint">"/.flyweb/articles"</span><span class="text-fw-muted">,</span> <span class="code-comment" style="animation-delay: 2.1s; color: #555570">// where</span></div>
+            <div class="code-line" style="animation-delay: 1.95s; padding-left: 6ch"><span class="text-fw-indigo">"format"</span><span class="text-fw-muted">:</span> <span class="text-fw-mint">"jsonl"</span><span class="text-fw-muted">,</span></div>
+            <div class="code-line" style="animation-delay: 2.2s; padding-left: 6ch"><span class="text-fw-indigo">"fields"</span><span class="text-fw-muted">: [</span><span class="text-fw-mint">"title"</span><span class="text-fw-muted">,</span> <span class="text-fw-mint">"author"</span><span class="text-fw-muted">,</span> <span class="code-comment" style="animation-delay: 2.6s; color: #555570">// what</span></div>
+            <div class="code-line" style="animation-delay: 2.45s; padding-left: 14ch"><span class="text-fw-mint">"date"</span><span class="text-fw-muted">,</span> <span class="text-fw-mint">"content"</span><span class="text-fw-muted">],</span></div>
+            <div class="code-line" style="animation-delay: 2.7s; padding-left: 6ch"><span class="text-fw-indigo">"query"</span><span class="text-fw-muted">:</span> <span class="text-fw-mint">"?tag=&#123;tag&#125;"</span> <span class="code-comment" style="animation-delay: 3.1s; color: #555570">// search</span></div>
+            <div class="code-line" style="animation-delay: 2.95s; padding-left: 4ch"><span class="text-fw-muted">&#125;</span></div>
+            <div class="code-line" style="animation-delay: 3.1s; padding-left: 2ch"><span class="text-fw-muted">&#125;</span></div>
+            <div class="code-line" style="animation-delay: 3.25s"><span class="text-fw-muted">&#125;</span><span class="inline-block w-[7px] h-[18px] bg-fw-mint ml-0.5 -mb-0.5 cursor-blink" style="animation-delay: 3.5s"></span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="#solution"
-        class="bg-flyweb-amber text-flyweb-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-flyweb-amber-light transition-colors"
-      >
-        See How It Works
-      </a>
-      <a
-        href="https://github.com/flywebprotocol"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="border border-gray-600 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:border-flyweb-amber hover:text-flyweb-amber transition-colors"
-      >
-        Star on GitHub
-      </a>
+    <!-- Bottom stat bar -->
+    <div class="mt-20 pt-10 border-t border-fw-border/30 grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="code-line text-center" style="animation-delay: 3.6s">
+        <div class="text-2xl font-display font-bold text-fw-text mb-1">1 file</div>
+        <div class="text-xs text-fw-muted font-mono">your whole site, structured</div>
+      </div>
+      <div class="code-line text-center" style="animation-delay: 3.8s">
+        <div class="text-2xl font-display font-bold text-fw-text mb-1">any AI</div>
+        <div class="text-xs text-fw-muted font-mono">universal agent compatibility</div>
+      </div>
+      <div class="code-line text-center" style="animation-delay: 4.0s">
+        <div class="text-2xl font-display font-bold text-fw-text mb-1">5 min</div>
+        <div class="text-xs text-fw-muted font-mono">add to any website</div>
+      </div>
     </div>
-  </div>
-
-  <div class="absolute bottom-8 animate-bounce">
-    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-    </svg>
   </div>
 </section>

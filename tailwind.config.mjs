@@ -4,17 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        flyweb: {
-          black: '#0a0a0a',
-          dark: '#111111',
-          amber: '#F59E0B',
-          'amber-light': '#FBBF24',
-          'amber-dark': '#D97706',
+        fw: {
+          bg: '#0a0a0f',
+          surface: '#111119',
+          card: '#18182a',
+          border: '#252540',
+          mint: '#00ffc8',
+          indigo: '#818cf8',
+          muted: '#6b6b8d',
+          text: '#e8e8f0',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        display: ['Syne', 'system-ui', 'sans-serif'],
+        body: ['Outfit', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
     },
   },
