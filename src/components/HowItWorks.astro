@@ -1,50 +1,50 @@
 <section id="how-it-works" class="section-container">
   <div class="fade-in text-center mb-16">
-    <p class="text-xs font-mono text-fw-mint mb-4 tracking-widest uppercase">How it works</p>
-    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+    <p class="text-xs font-mono text-fw-mint/70 mb-4 tracking-widest uppercase">How it works</p>
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">
       Three layers. <span class="text-fw-mint">One protocol.</span>
     </h2>
   </div>
 
-  <div class="max-w-3xl mx-auto space-y-6">
-    <div class="fade-in flex gap-5 sm:gap-6 items-start bg-fw-surface/30 border border-fw-border rounded-xl p-6 sm:p-7 hover:border-fw-mint/20 transition-colors">
-      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-fw-mint/10 border border-fw-mint/20 flex items-center justify-center">
+  <div class="max-w-2xl mx-auto space-y-4">
+    <div class="fade-in flex gap-5 items-start bg-fw-surface/30 border border-fw-border/70 rounded-2xl p-7 hover:border-fw-mint/20 transition-colors">
+      <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-fw-mint/10 border border-fw-mint/20 flex items-center justify-center">
         <span class="text-fw-mint font-mono font-bold text-sm">1</span>
       </div>
       <div>
         <h3 class="font-display text-lg font-bold mb-2 text-fw-text">Discovery</h3>
         <p class="text-sm text-fw-muted leading-relaxed">
-          Every website publishes <code class="text-fw-mint text-xs font-mono bg-fw-surface px-1.5 py-0.5 rounded">/.well-known/flyweb.json</code>.
-          AI agents check this file first — like <code class="text-fw-text/70 text-xs font-mono">robots.txt</code> but the opposite.
+          Your website publishes <code class="text-fw-mint text-xs font-mono bg-fw-surface px-1.5 py-0.5 rounded">/.well-known/flyweb.json</code>.
+          AI agents check this file first — like <code class="text-fw-text/60 text-xs font-mono">robots.txt</code> but the opposite.
           Instead of "stay away," it says <span class="text-fw-mint">"here's what I have."</span>
         </p>
       </div>
     </div>
 
-    <div class="fade-in flex gap-5 sm:gap-6 items-start bg-fw-surface/30 border border-fw-border rounded-xl p-6 sm:p-7 hover:border-fw-mint/20 transition-colors">
-      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-fw-mint/10 border border-fw-mint/20 flex items-center justify-center">
+    <div class="fade-in flex gap-5 items-start bg-fw-surface/30 border border-fw-border/70 rounded-2xl p-7 hover:border-fw-mint/20 transition-colors" style="transition-delay: 80ms">
+      <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-fw-mint/10 border border-fw-mint/20 flex items-center justify-center">
         <span class="text-fw-mint font-mono font-bold text-sm">2</span>
       </div>
       <div>
         <h3 class="font-display text-lg font-bold mb-2 text-fw-text">Structure</h3>
         <p class="text-sm text-fw-muted leading-relaxed">
-          Content is served as clean, structured data — JSON, JSONL, or any machine-readable format.
+          Content is served as clean, structured data — JSON or JSONL.
           No more parsing HTML. No more guessing what's a headline vs. a sidebar ad.
           <span class="text-fw-mint">Just data.</span>
         </p>
       </div>
     </div>
 
-    <div class="fade-in flex gap-5 sm:gap-6 items-start bg-fw-surface/30 border border-fw-border rounded-xl p-6 sm:p-7 hover:border-fw-mint/20 transition-colors">
-      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-fw-mint/10 border border-fw-mint/20 flex items-center justify-center">
+    <div class="fade-in flex gap-5 items-start bg-fw-surface/30 border border-fw-border/70 rounded-2xl p-7 hover:border-fw-mint/20 transition-colors" style="transition-delay: 160ms">
+      <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-fw-mint/10 border border-fw-mint/20 flex items-center justify-center">
         <span class="text-fw-mint font-mono font-bold text-sm">3</span>
       </div>
       <div>
         <h3 class="font-display text-lg font-bold mb-2 text-fw-text">Query</h3>
         <p class="text-sm text-fw-muted leading-relaxed">
-          Standard URL-based queries any AI agent can construct. No SDK. No API key.
-          Just <code class="text-fw-text/70 text-xs font-mono bg-fw-surface px-1.5 py-0.5 rounded">GET /.flyweb/articles?tag=ai&amp;limit=10</code>.
-          <span class="text-fw-mint">Learnable in 5 minutes.</span>
+          Standard URL queries any AI agent can construct. No SDK. No API key.
+          Just <code class="text-fw-text/60 text-xs font-mono bg-fw-surface px-1.5 py-0.5 rounded">GET /.flyweb/posts?tag=ai</code>.
+          <span class="text-fw-mint">Simple as a link.</span>
         </p>
       </div>
     </div>

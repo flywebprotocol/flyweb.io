@@ -1,42 +1,48 @@
 <section class="section-container">
   <div class="fade-in text-center mb-16">
-    <p class="text-xs font-mono text-fw-mint mb-4 tracking-widest uppercase">The problem</p>
-    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+    <p class="text-xs font-mono text-fw-mint/70 mb-4 tracking-widest uppercase">The problem</p>
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">
       The web wasn't built for machines.
     </h2>
-    <p class="text-fw-muted text-lg max-w-xl mx-auto">And it's breaking everything AI tries to do.</p>
+    <p class="text-fw-muted text-lg max-w-lg mx-auto leading-relaxed">And it's breaking everything AI tries to do.</p>
   </div>
 
-  <div class="grid md:grid-cols-3 gap-5">
-    <div class="fade-in group bg-fw-surface/50 border border-fw-border rounded-xl p-7 hover:border-red-400/30 transition-colors">
-      <div class="font-mono text-2xl mb-5 text-red-400/80">&lt;/&gt;</div>
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="fade-in bg-fw-surface/40 border border-fw-border/70 rounded-2xl p-8 hover:border-red-400/20 transition-colors">
+      <div class="w-10 h-10 rounded-xl bg-red-400/10 flex items-center justify-center mb-5">
+        <span class="text-red-400 font-mono text-sm font-bold">&lt;/&gt;</span>
+      </div>
       <h3 class="font-display text-lg font-bold mb-3 text-fw-text">HTML Soup</h3>
       <p class="text-sm text-fw-muted leading-relaxed">
         Every website is a unique mess of divs, classes, and JavaScript. AI agents scrape raw HTML, guess what's content, and <span class="text-red-400">hallucinate</span> when they get it wrong.
       </p>
     </div>
 
-    <div class="fade-in group bg-fw-surface/50 border border-fw-border rounded-xl p-7 hover:border-red-400/30 transition-colors">
-      <div class="font-mono text-2xl mb-5 text-red-400/80">???</div>
+    <div class="fade-in bg-fw-surface/40 border border-fw-border/70 rounded-2xl p-8 hover:border-red-400/20 transition-colors" style="transition-delay: 80ms">
+      <div class="w-10 h-10 rounded-xl bg-red-400/10 flex items-center justify-center mb-5">
+        <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+      </div>
       <h3 class="font-display text-lg font-bold mb-3 text-fw-text">No Discovery</h3>
       <p class="text-sm text-fw-muted leading-relaxed">
-        There's no standard way for a machine to ask: "What content do you have?" Every API is bespoke. Every integration is custom. <span class="text-red-400">No universal protocol.</span>
+        There's no standard way for AI to ask: "What content do you have?" Every API is bespoke. Every integration is custom. <span class="text-red-400">No universal protocol.</span>
       </p>
     </div>
 
-    <div class="fade-in group bg-fw-surface/50 border border-fw-border rounded-xl p-7 hover:border-red-400/30 transition-colors">
-      <div class="font-mono text-2xl mb-5 text-red-400/80">&#x2715;</div>
-      <h3 class="font-display text-lg font-bold mb-3 text-fw-text">Scraped Without Credit</h3>
+    <div class="fade-in bg-fw-surface/40 border border-fw-border/70 rounded-2xl p-8 hover:border-red-400/20 transition-colors" style="transition-delay: 160ms">
+      <div class="w-10 h-10 rounded-xl bg-red-400/10 flex items-center justify-center mb-5">
+        <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+      </div>
+      <h3 class="font-display text-lg font-bold mb-3 text-fw-text">Zero Attribution</h3>
       <p class="text-sm text-fw-muted leading-relaxed">
-        AI consumes content, generates answers, and gives <span class="text-red-400">zero attribution</span> to the original creator. No credit. No link back. No control.
+        AI consumes your content, generates answers, and gives <span class="text-red-400">zero credit</span> to the original creator. No link back. No control.
       </p>
     </div>
   </div>
 
-  <div class="fade-in mt-14 text-center">
-    <p class="text-lg text-fw-muted">
-      The result? AI that <span class="text-red-400 font-medium">hallucinates</span>, publishers that get <span class="text-red-400 font-medium">scraped</span>,
-      and a web that <span class="text-red-400 font-medium">no machine can reliably read</span>.
+  <div class="fade-in mt-12 text-center">
+    <p class="text-base text-fw-muted">
+      The result? AI that <span class="text-red-400">hallucinates</span>, publishers that get <span class="text-red-400">scraped</span>,
+      and a web that <span class="text-red-400">no machine can reliably read</span>.
     </p>
   </div>
 </section>

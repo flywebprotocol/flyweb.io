@@ -1,52 +1,51 @@
 <section id="solution" class="section-container">
   <div class="fade-in text-center mb-16">
-    <p class="text-xs font-mono text-fw-mint mb-4 tracking-widest uppercase">The solution</p>
-    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-      One file. <span class="text-fw-mint">Your whole site, structured.</span>
+    <p class="text-xs font-mono text-fw-mint/70 mb-4 tracking-widest uppercase">The solution</p>
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">
+      One file. <span class="text-fw-mint">Everything changes.</span>
     </h2>
-    <p class="text-fw-muted text-lg max-w-2xl mx-auto">
+    <p class="text-fw-muted text-lg max-w-xl mx-auto leading-relaxed">
       Add <code class="text-fw-mint bg-fw-surface px-2 py-0.5 rounded font-mono text-sm">/.well-known/flyweb.json</code> to your website.
-      It tells every AI agent what content you have, how to read it, and how to credit you.
+      It tells every AI what you have, how to read it, and how to credit you.
     </p>
   </div>
 
-  <div class="fade-in max-w-3xl mx-auto">
-    <div class="bg-fw-surface/60 border border-fw-border rounded-xl overflow-hidden backdrop-blur-sm">
-      <div class="flex items-center gap-2 px-4 py-3 border-b border-fw-border/60 bg-fw-bg/30">
+  <div class="fade-in max-w-2xl mx-auto">
+    <div class="bg-fw-surface/50 border border-fw-border rounded-2xl overflow-hidden backdrop-blur-sm">
+      <div class="flex items-center gap-3 px-5 py-3 border-b border-fw-border/50">
         <div class="flex gap-1.5">
-          <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></div>
-          <div class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></div>
-          <div class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-fw-border"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-fw-border"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-fw-border"></div>
         </div>
-        <span class="text-fw-muted text-[11px] font-mono ml-2">/.well-known/flyweb.json</span>
+        <span class="text-fw-muted text-xs font-mono">/.well-known/flyweb.json</span>
       </div>
       <pre class="p-6 overflow-x-auto text-[13px] sm:text-sm leading-[1.8]"><code class="font-mono"><span class="text-fw-muted">&#123;</span>
   <span class="text-fw-indigo">"flyweb"</span>: <span class="text-fw-mint">"1.0"</span>,
   <span class="text-fw-indigo">"entity"</span>: <span class="text-fw-mint">"TechCrunch"</span>,
   <span class="text-fw-indigo">"type"</span>: <span class="text-fw-mint">"news"</span>,
-  <span class="text-fw-indigo">"attribution"</span>: <span class="text-fw-muted">&#123;</span>                         <span class="text-[#555570]">// credit is non-negotiable</span>
+  <span class="text-fw-indigo">"attribution"</span>: <span class="text-fw-muted">&#123;</span>
     <span class="text-fw-indigo">"required"</span>: <span class="text-orange-300">true</span>,
     <span class="text-fw-indigo">"license"</span>: <span class="text-fw-mint">"CC-BY-4.0"</span>,
     <span class="text-fw-indigo">"must_link"</span>: <span class="text-orange-300">true</span>
   <span class="text-fw-muted">&#125;</span>,
   <span class="text-fw-indigo">"resources"</span>: <span class="text-fw-muted">&#123;</span>
     <span class="text-fw-indigo">"articles"</span>: <span class="text-fw-muted">&#123;</span>
-      <span class="text-fw-indigo">"path"</span>: <span class="text-fw-mint">"/.flyweb/articles"</span>,           <span class="text-[#555570]">// where to find them</span>
-      <span class="text-fw-indigo">"format"</span>: <span class="text-fw-mint">"jsonl"</span>,                     <span class="text-[#555570]">// one JSON per line</span>
-      <span class="text-fw-indigo">"fields"</span>: <span class="text-fw-muted">[</span><span class="text-fw-mint">"title"</span>, <span class="text-fw-mint">"author"</span>, <span class="text-fw-mint">"date"</span>,
-                <span class="text-fw-mint">"content"</span>, <span class="text-fw-mint">"tags"</span><span class="text-fw-muted">]</span>,
-      <span class="text-fw-indigo">"access"</span>: <span class="text-fw-mint">"free"</span>,                      <span class="text-[#555570]">// free now, paid later</span>
-      <span class="text-fw-indigo">"query"</span>: <span class="text-fw-mint">"?tag=&#123;tag&#125;&amp;limit=&#123;n&#125;"</span>       <span class="text-[#555570]">// searchable</span>
+      <span class="text-fw-indigo">"path"</span>: <span class="text-fw-mint">"/.flyweb/articles"</span>,
+      <span class="text-fw-indigo">"format"</span>: <span class="text-fw-mint">"jsonl"</span>,
+      <span class="text-fw-indigo">"fields"</span>: <span class="text-fw-muted">[</span><span class="text-fw-mint">"title"</span>, <span class="text-fw-mint">"author"</span>, <span class="text-fw-mint">"date"</span>, <span class="text-fw-mint">"content"</span><span class="text-fw-muted">]</span>,
+      <span class="text-fw-indigo">"access"</span>: <span class="text-fw-mint">"free"</span>,
+      <span class="text-fw-indigo">"query"</span>: <span class="text-fw-mint">"?tag=&#123;tag&#125;&amp;limit=&#123;n&#125;"</span>
     <span class="text-fw-muted">&#125;</span>
   <span class="text-fw-muted">&#125;</span>
 <span class="text-fw-muted">&#125;</span></code></pre>
     </div>
   </div>
 
-  <div class="fade-in mt-12 text-center">
-    <p class="text-xl font-display font-bold">
+  <div class="fade-in mt-10 text-center">
+    <p class="text-lg font-display font-bold">
       Use my content. <span class="text-fw-mint">But say my name.</span>
     </p>
-    <p class="text-sm text-fw-muted mt-2">You can set price to zero. You can never set attribution to zero.</p>
+    <p class="text-sm text-fw-muted mt-2">Attribution is enforced at the protocol level. Non-negotiable.</p>
   </div>
 </section>

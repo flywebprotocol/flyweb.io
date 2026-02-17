@@ -5,19 +5,19 @@ export default {
     extend: {
       colors: {
         fw: {
-          bg: '#0a0a0f',
-          surface: '#111119',
+          bg: '#08080a',
+          surface: '#111113',
           card: '#18182a',
-          border: '#252540',
+          border: '#1e1e23',
           mint: '#00ffc8',
           indigo: '#818cf8',
-          muted: '#6b6b8d',
-          text: '#e8e8f0',
+          muted: '#6e6e7e',
+          text: '#f0f0f3',
         },
       },
       fontFamily: {
-        display: ['Syne', 'system-ui', 'sans-serif'],
-        body: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        body: ['Figtree', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
     },
